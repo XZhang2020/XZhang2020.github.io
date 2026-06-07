@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>张学吉 | Xueji Zhang — 控制工程博士 · 工业智能化专家</title>
+<meta name="description" content="Xueji Zhang — Control Systems PhD, Industrial AI specialist. From distributed control theory to industrial large models and agents.">
+<style>
+:root {
+  --bg: #0f1419;
+  --bg-soft: #161c24;
+  --card: #1a212b;
+  --border: #2a323d;
+  --text: #e6edf3;
+  --text-dim: #9aa7b4;
+  --accent: #3b82f6;
+  --accent-soft: #1e3a5f;
+  --accent-2: #38bdf8;
+  --radius: 14px;
+  --maxw: 920px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent-2); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ---- top nav ---- */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(15,20,25,.82);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+  max-width: var(--maxw); margin: 0 auto; padding: 14px 24px;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+}
+.nav-name { font-weight: 700; letter-spacing: .5px; font-size: 1.05rem; }
+.nav-links { display: flex; gap: 22px; align-items: center; }
+.nav-links a { color: var(--text-dim); font-size: .9rem; transition: color .2s; }
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.lang-toggle {
+  border: 1px solid var(--border); background: var(--bg-soft); color: var(--text);
+  padding: 6px 12px; border-radius: 20px; cursor: pointer; font-size: .82rem;
+  transition: all .2s; font-family: inherit;
+}
+.lang-toggle:hover { border-color: var(--accent); color: var(--accent-2); }
+
+/* ---- layout ---- */
+section { max-width: var(--maxw); margin: 0 auto; padding: 56px 24px; }
+.section-title {
+  font-size: 1.45rem; font-weight: 700; margin-bottom: 28px;
+  display: flex; align-items: center; gap: 12px;
+}
+.section-title::before {
+  content: ""; width: 4px; height: 24px; background: var(--accent); border-radius: 2px;
+}
+
+/* ---- hero ---- */
+.hero {
+  text-align: center; padding-top: 80px; padding-bottom: 40px;
+  border-bottom: 1px solid var(--border);
+}
+.hero h1 { font-size: 2.8rem; font-weight: 800; letter-spacing: 1px; margin-bottom: 8px; }
+.hero .en-name { font-size: 1.2rem; color: var(--text-dim); font-weight: 500; margin-bottom: 20px; }
+.hero .tagline { font-size: 1.15rem; color: var(--accent-2); margin-bottom: 14px; font-weight: 600; }
+.hero .blurb { max-width: 640px; margin: 0 auto 26px; color: var(--text-dim); }
+.hero-tags { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 28px; }
+.tag {
+  background: var(--accent-soft); color: var(--accent-2);
+  padding: 5px 14px; border-radius: 20px; font-size: .82rem; font-weight: 500;
+}
+.contact-row { display: flex; flex-wrap: wrap; gap: 18px; justify-content: center; font-size: .92rem; }
+.contact-row a, .contact-row span { color: var(--text-dim); }
+
+/* ---- story ---- */
+.story-body p { margin-bottom: 16px; color: var(--text); font-size: 1.02rem; }
+.story-body p:last-child { margin-bottom: 0; }
+
+/* ---- timeline ---- */
+.timeline { position: relative; padding-left: 28px; }
+.timeline::before {
+  content: ""; position: absolute; left: 6px; top: 6px; bottom: 6px;
+  width: 2px; background: var(--border);
+}
+.tl-item { position: relative; margin-bottom: 34px; }
+.tl-item::before {
+  content: ""; position: absolute; left: -26px; top: 7px;
+  width: 11px; height: 11px; border-radius: 50%;
+  background: var(--accent); border: 2px solid var(--bg);
+}
+.tl-date { font-size: .82rem; color: var(--accent-2); font-weight: 600; letter-spacing: .3px; }
+.tl-role { font-size: 1.08rem; font-weight: 700; margin: 3px 0; }
+.tl-org { font-size: .92rem; color: var(--text-dim); margin-bottom: 8px; }
+.tl-item ul { list-style: none; }
+.tl-item li {
+  position: relative; padding-left: 18px; margin-bottom: 6px;
+  color: var(--text-dim); font-size: .94rem;
+}
+.tl-item li::before {
+  content: ""; position: absolute; left: 0; top: 11px;
+  width: 5px; height: 5px; border-radius: 50%; background: var(--accent);
+}
+
+/* ---- cards grid ---- */
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+.card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 22px;
+  transition: transform .2s, border-color .2s;
+}
+.card:hover { transform: translateY(-3px); border-color: var(--accent); }
+.card h3 { font-size: 1.1rem; margin-bottom: 6px; }
+.card .card-sub { font-size: .82rem; color: var(--accent-2); margin-bottom: 12px; font-weight: 600; }
+.card ul { list-style: none; }
+.card li {
+  position: relative; padding-left: 16px; margin-bottom: 6px;
+  font-size: .9rem; color: var(--text-dim);
+}
+.card li::before {
+  content: ""; position: absolute; left: 0; top: 10px;
+  width: 5px; height: 5px; border-radius: 50%; background: var(--accent-2);
+}
+.metric { color: var(--accent-2); font-weight: 600; }
+
+/* ---- education / award lists ---- */
+.edu-item { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+.edu-item:last-child { border-bottom: none; }
+.edu-item .tl-date { display: block; margin-bottom: 4px; }
+.award-list { list-style: none; }
+.award-list li {
+  position: relative; padding-left: 26px; margin-bottom: 12px; color: var(--text);
+}
+.award-list li::before { content: "🏆"; position: absolute; left: 0; top: 0; font-size: .9rem; }
+
+/* ---- skills ---- */
+.skill-group { margin-bottom: 18px; }
+.skill-group .skill-label { font-size: .85rem; color: var(--text-dim); margin-bottom: 8px; font-weight: 600; }
+.skill-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  background: var(--bg-soft); border: 1px solid var(--border);
+  padding: 5px 13px; border-radius: 8px; font-size: .85rem; color: var(--text);
+}
+
+/* ---- publications ---- */
+.pub-item {
+  padding: 14px 0; border-bottom: 1px solid var(--border); font-size: .92rem;
+}
+.pub-item:last-child { border-bottom: none; }
+.pub-venue { color: var(--accent-2); font-weight: 600; }
+.pub-authors b { color: var(--text); }
+
+/* ---- footer ---- */
+footer {
+  text-align: center; padding: 40px 24px; color: var(--text-dim);
+  font-size: .85rem; border-top: 1px solid var(--border);
+}
+
+/* ---- lang visibility ---- */
+[data-lang-en] { display: none; }
+html[lang="en"] [data-lang-zh] { display: none; }
+html[lang="en"] [data-lang-en] { display: revert; }
+
+/* ---- responsive ---- */
+@media (max-width: 600px) {
+  .hero h1 { font-size: 2.1rem; }
+  .nav-links { gap: 14px; }
+  .nav-links a { display: none; }
+  section { padding: 40px 18px; }
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <span class="nav-name">张学吉 · Xueji Zhang</span>
+    <div class="nav-links">
+      <a href="#about"><span data-lang-zh>简介</span><span data-lang-en>About</span></a>
+      <a href="#experience"><span data-lang-zh>经历</span><span data-lang-en>Experience</span></a>
+      <a href="#products"><span data-lang-zh>产品</span><span data-lang-en>Products</span></a>
+      <a href="#skills"><span data-lang-zh>技能</span><span data-lang-en>Skills</span></a>
+      <a href="#publications"><span data-lang-zh>论文</span><span data-lang-en>Publications</span></a>
+      <button class="lang-toggle" id="langToggle">EN</button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="about">
+  <h1>张学吉</h1>
+  <div class="en-name">Xueji Zhang, Ph.D.</div>
+  <p class="tagline">
+    <span data-lang-zh>控制工程博士 · 工业智能化 / 工业 Agent 专家</span>
+    <span data-lang-en>Control Systems Ph.D. · Industrial AI & Agent Specialist</span>
+  </p>
+  <p class="blurb">
+    <span data-lang-zh>从分布式控制理论到工业产品落地，再到工业大模型与 Agent —— 横跨「控制 × 工业 × AI」的复合型工程师与研究者。IEEE 顶刊一作，国家级海外高层次人才（青年千人）。</span>
+    <span data-lang-en>From distributed control theory to shipped industrial products, now into industrial large models and agents — an engineer-researcher spanning Control × Industry × AI. First-author in IEEE flagship journals; national-level overseas talent program awardee.</span>
+  </p>
+  <div class="hero-tags">
+    <span class="tag" data-lang-zh>分布式控制</span><span class="tag" data-lang-en>Distributed Control</span>
+    <span class="tag" data-lang-zh>嵌入式 / 工业落地</span><span class="tag" data-lang-en>Embedded / Industrial Deployment</span>
+    <span class="tag" data-lang-zh>工业大模型</span><span class="tag" data-lang-en>Industrial LLM</span>
+    <span class="tag" data-lang-zh>RAG / Agent</span><span class="tag" data-lang-en>RAG / Agents</span>
+    <span class="tag" data-lang-zh>双博士学位</span><span class="tag" data-lang-en>Double Doctorate</span>
+  </div>
+  <div class="contact-row">
+    <a href="mailto:zxjx@zju.edu.cn">✉ zxjx@zju.edu.cn</a>
+    <span>📞 138-5448-6294</span>
+    <span data-lang-zh>📍 中国 · 广州</span><span data-lang-en>📍 Guangzhou, China</span>
+  </div>
+</header>
+
+<section id="story">
+  <h2 class="section-title"><span data-lang-zh>关于我</span><span data-lang-en>About Me</span></h2>
+  <div class="story-body">
+    <p>
+      <span data-lang-zh>我是一名横跨「控制理论 × 工业工程 × AI」的工程师。十余年里，我的工作沿着一条完整的链路推进：从控制理论的底层数学，到把控制与优化算法嵌入工业产品、让设备更智能，再到今天投身工业大模型与 Agent。</span>
+      <span data-lang-en>I'm an engineer working across control theory, industrial engineering, and AI. Over the past decade my work has followed one continuous thread: from the underlying mathematics of control, to embedding control and optimization algorithms into industrial products to make equipment smarter, to today's work on industrial large models and agents.</span>
+    </p>
+    <p>
+      <span data-lang-zh>读博期间我在 IEEE TAC、TCST 等顶刊以一作发表分布式观测器与控制器的工作；进入工业界后，我没有停在论文层面——在阿特拉斯·科普柯，我作为项目负责人，把控制与优化算法嵌入到嵌入式控制器中，让产品更智能；我参与的两款产品累计销售 2000 余台。近两年，我主动转向 AI：从 Dify 二开、内部 AI 培训，到探索事件驱动的工业 Agent 架构思路。</span>
+      <span data-lang-en>During my PhD I published first-author work on distributed observers and controllers in IEEE TAC and TCST. In industry I didn't stop at papers — at Atlas Copco, as project lead, I embedded control and optimization algorithms into embedded controllers to make the products smarter; the two product lines I contributed to have shipped 2000+ units. In the past two years I've moved deliberately into AI: from extending Dify and running internal AI training to exploring an event-driven industrial-agent architecture.</span>
+    </p>
+    <p>
+      <span data-lang-zh>我相信工业 AI 的真正壁垒，不在模型本身，而在于既懂物理系统、又懂数据与算法的人。这正是我想做的事：让大模型与 Agent 真正落进制造业现场。</span>
+      <span data-lang-en>I believe the real moat in industrial AI isn't the model — it's people who understand both physical systems and data/algorithms. That's exactly what I want to do: bring large models and agents onto the real manufacturing floor.</span>
+    </p>
+  </div>
+</section>
+
+<section id="experience">
+  <h2 class="section-title"><span data-lang-zh>工作经历</span><span data-lang-en>Experience</span></h2>
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-date">2025.10 — <span data-lang-zh>至今</span><span data-lang-en>Present</span></div>
+      <div class="tl-role"><span data-lang-zh>技术专家</span><span data-lang-en>Technical Expert</span></div>
+      <div class="tl-org"><span data-lang-zh>广东联通新型工业化研究院，广州</span><span data-lang-en>Guangdong Unicom Institute of New Industrialization, Guangzhou</span></div>
+      <ul>
+        <li><span data-lang-zh>基于联通元景 MaaS 平台，参与工业多模态大模型场景研究，聚焦视觉理解、时序预测在制造业的应用。</span><span data-lang-en>Industrial multimodal LLM scenario research on the Unicom Yuanjing MaaS platform — visual understanding and time-series forecasting for manufacturing.</span></li>
+        <li><span data-lang-zh>基于联通万悟 Agent 低代码平台，参与工业 Agent 技术方案讨论，探索事件驱动（Event-Driven）的架构思路，并梳理 RAG 知识检索 / 知识图谱 / OT 数据接入与工具调用等能力方向（仍在探索推进中）。</span><span data-lang-en>On the Unicom Wanwu low-code platform, contributing to industrial-agent solution discussions and exploring an event-driven architecture, while mapping out capability directions — RAG retrieval, knowledge graphs, OT data ingestion and tool invocation (work in progress).</span></li>
+      </ul>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">2024.12 — 2025.09</div>
+      <div class="tl-role"><span data-lang-zh>科技创新专家</span><span data-lang-en>Technology Innovation Expert</span></div>
+      <div class="tl-org"><span data-lang-zh>中国联通广东省分公司，广州</span><span data-lang-en>China Unicom Guangdong Branch, Guangzhou</span></div>
+      <ul>
+        <li><span data-lang-zh>基于 Dify 平台二次开发，实现 Excel 自动解析、PostgreSQL 集成与自然语言转 SQL 查询，提升非技术岗员工数据查询效率。</span><span data-lang-en>Built on Dify: automated Excel parsing, PostgreSQL integration and natural-language-to-SQL, boosting data-query efficiency for non-technical staff.</span></li>
+        <li><span data-lang-zh>组织内部 AI 技术分享与培训，围绕 LLM、RAG、LangChain 开展案例演示，推动团队对生成式 AI 与智能体技术的认知。</span><span data-lang-en>Ran internal AI training on LLM, RAG and LangChain, driving team adoption of generative AI and agent technologies.</span></li>
+      </ul>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">2018.04 — 2024.10</div>
+      <div class="tl-role"><span data-lang-zh>信息物理系统 (CPS) 工程师 · 软件开发与科研项目负责人</span><span data-lang-en>Cyber-Physical Systems Engineer · Software & R&D Project Lead</span></div>
+      <div class="tl-org"><span data-lang-zh>阿特拉斯·科普柯 (Atlas Copco)，比利时</span><span data-lang-en>Atlas Copco, Belgium</span></div>
+      <ul>
+        <li><span data-lang-zh>构建离心式空压机站房建模与仿真平台；负责基于嵌入式 Linux (Yocto) 的 Optimizer 4.0 控制器软件架构与系统集成。</span><span data-lang-en>Built a modeling & simulation platform for centrifugal compressor stations; led software architecture and integration of the embedded-Linux (Yocto) Optimizer 4.0 controller.</span></li>
+        <li><span data-lang-zh>开展机组集群控制与优化算法的设计、开发与验证，实现多机协同调度与能效优化，打通「模型仿真—控制部署—现场验证」闭环。</span><span data-lang-en>Designed, built and validated cluster-control and optimization algorithms for multi-unit coordination and energy efficiency, closing the loop from simulation to deployment to field validation.</span></li>
+        <li><span data-lang-zh>主导与鲁汶大学、根特大学及 Flanders Make 的产学研合作，围绕离心压缩机与工业管网建模、在线参数辨识申请政府资金并推动落地。</span><span data-lang-en>Led industry-academia collaboration with KU Leuven, Ghent University and Flanders Make on compressor & pipe-network modeling and online parameter identification, securing government funding.</span></li>
+      </ul>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">2014.04 — 2018.04</div>
+      <div class="tl-role"><span data-lang-zh>研发工程师（兼职）</span><span data-lang-en>R&D Engineer (part-time)</span></div>
+      <div class="tl-org"><span data-lang-zh>西门子工业软件 (Siemens Industry Software)，比利时</span><span data-lang-en>Siemens Industry Software, Belgium</span></div>
+      <ul>
+        <li><span data-lang-zh>基于 LQR 的轮式移动机器人协同追踪控制；集中式与分布式 LQG 减振控制的比较研究。</span><span data-lang-en>LQR cooperative tracking control for wheeled mobile robots; centralized vs. decentralized LQG control for vibration damping.</span></li>
+        <li><span data-lang-zh>针对柔性材料的鲁棒控制器设计；利用 dSPACE 实现硬件在环测试，验证分布式估算与控制算法。</span><span data-lang-en>Robust controller design for flexible structures; hardware-in-the-loop validation of distributed estimation & control on dSPACE.</span></li>
+      </ul>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">2012.04 — 2013.08</div>
+      <div class="tl-role"><span data-lang-zh>研发实习生（全职）</span><span data-lang-en>R&D Intern (full-time)</span></div>
+      <div class="tl-org"><span data-lang-zh>佳能生产打印 (Canon Production Printing)，荷兰</span><span data-lang-en>Canon Production Printing, Netherlands</span></div>
+      <ul>
+        <li><span data-lang-zh>完成宽幅海报打印机纸张传送系统的前馈控制设计，定位精度从 100μm 提高到 <span class="metric">15μm</span>；实现纸张位置提取的图像处理算法。</span><span data-lang-en>Feed-forward control for a wide-format printer's paper-transport system, improving positioning from 100μm to <span class="metric">15μm</span>; image-processing for paper-position extraction.</span></li>
+        <li><span data-lang-zh>利用 MATLAB/Simulink 与系统辨识技术，设计迭代学习控制 (ILC) 智能算法，对纸张定位误差补偿，15 次迭代后精度提升至 <span class="metric">10μm</span>。</span><span data-lang-en>Iterative Learning Control via MATLAB/Simulink and system identification, reaching <span class="metric">10μm</span> accuracy after 15 iterations.</span></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<section id="products" style="background:var(--bg-soft);max-width:100%;">
+  <div style="max-width:var(--maxw);margin:0 auto;">
+  <h2 class="section-title"><span data-lang-zh>主导产品</span><span data-lang-en>Products Led</span></h2>
+  <div class="grid">
+
+    <div class="card">
+      <h3><span data-lang-zh>中央控制器 Optimizer 4.0</span><span data-lang-en>Central Controller — Optimizer 4.0</span></h3>
+      <div class="card-sub"><span data-lang-zh>项目负责人 · 离心式空压机集群智能控制</span><span data-lang-en>Project Lead · Centrifugal compressor cluster control</span></div>
+      <ul>
+        <li><span data-lang-zh>压力调节与流量调节双模式，基于管网模型平稳调度不同型号机组启停。</span><span data-lang-en>Dual pressure/flow regulation modes, smoothly scheduling mixed compressor fleets via a pipe-network model.</span></li>
+        <li><span data-lang-zh>基于机组能耗模型与动态规划算法，实时优化机群总能耗。</span><span data-lang-en>Real-time total-energy optimization using dynamic programming over per-unit energy models.</span></li>
+        <li><span data-lang-zh>设备状态检测告警，对接 SCADA 与云平台，支持数据可视化与智能分析。</span><span data-lang-en>Condition monitoring & alarms, SCADA and cloud integration, data visualization and analytics.</span></li>
+        <li><span data-lang-zh>产业化规模：截至 2024 年累计销售 <span class="metric">2000+ 台</span>，单价十几万至几十万元。</span><span data-lang-en>Commercialization: <span class="metric">2000+ units</span> sold by 2024.</span></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3><span data-lang-zh>中央控制器 Equalizer 4.0 Pro</span><span data-lang-en>Central Controller — Equalizer 4.0 Pro</span></h3>
+      <div class="card-sub"><span data-lang-zh>项目负责人 · 新一代空压机站房均衡控制器</span><span data-lang-en>Project Lead · Next-gen compressor-station balancing controller</span></div>
+      <ul>
+        <li><span data-lang-zh>控制逻辑全面优化，降低启停次数与设备耗损；机群协同更智能，减少管网压力波动。</span><span data-lang-en>Optimized control logic cuts start-stop cycles and wear; smarter coordination reduces pipe-pressure fluctuation.</span></li>
+        <li><span data-lang-zh>工业 4.0 数据可视化与连通性，支持 Modbus TCP、Profinet、OPC UA 等主流协议。</span><span data-lang-en>Industry-4.0 visualization & connectivity over Modbus TCP, Profinet, OPC UA.</span></li>
+        <li><span data-lang-zh>产业化规模：MVP 于 2023 年 6 月推向市场，可监测 30 台设备，已累计销售数百台。</span><span data-lang-en>Commercialization: MVP launched June 2023, monitors up to 30 devices; hundreds of units sold.</span></li>
+      </ul>
+    </div>
+
+  </div>
+  </div>
+</section>
+
+<section id="education">
+  <h2 class="section-title"><span data-lang-zh>教育背景</span><span data-lang-en>Education</span></h2>
+  <div class="edu-item">
+    <span class="tl-date">2014.04 — 2018</span>
+    <div class="tl-role"><span data-lang-zh>博士（双学位）· 机械工程 / 电气工程与信息技术</span><span data-lang-en>Ph.D. (Double Degree) · Mechanical Eng. / Electrical Eng. & IT</span></div>
+    <div class="tl-org"><span data-lang-zh>鲁汶大学（比利时）· 布拉格理工大学（捷克）—— 自动化 / 控制工程与机器人方向</span><span data-lang-en>KU Leuven (Belgium) · Czech Technical University in Prague — Automation / Control & Robotics</span></div>
+  </div>
+  <div class="edu-item">
+    <span class="tl-date">2011.09 — 2013.09</span>
+    <div class="tl-role"><span data-lang-zh>硕士 · 机械工程（控制系统技术方向）</span><span data-lang-en>M.Sc. · Mechanical Engineering (Control Systems Technology)</span></div>
+    <div class="tl-org"><span data-lang-zh>埃因霍温理工大学，荷兰</span><span data-lang-en>Eindhoven University of Technology, Netherlands</span></div>
+  </div>
+  <div class="edu-item">
+    <span class="tl-date">2007.09 — 2011.07</span>
+    <div class="tl-role"><span data-lang-zh>学士 · 机械电子工程</span><span data-lang-en>B.Eng. · Mechatronics Engineering</span></div>
+    <div class="tl-org"><span data-lang-zh>浙江大学，中国·杭州</span><span data-lang-en>Zhejiang University, Hangzhou, China</span></div>
+  </div>
+</section>
+
+<section id="awards" style="background:var(--bg-soft);max-width:100%;">
+  <div style="max-width:var(--maxw);margin:0 auto;">
+  <h2 class="section-title"><span data-lang-zh>获奖 · 荣誉</span><span data-lang-en>Honors & Awards</span></h2>
+  <ul class="award-list">
+    <li><span data-lang-zh>工信部 · 国家级海外高层次人才次引进人才（青年千人称号）</span><span data-lang-en>National-Level Overseas High-Level Talent — Young Thousand Talents (MIIT)</span></li>
+    <li><span data-lang-zh>欧盟委员会 · 玛丽居里 (Marie Skłodowska-Curie) 博士全额奖学金</span><span data-lang-en>EU Marie Skłodowska-Curie Doctoral Full Scholarship</span></li>
+    <li><span data-lang-zh>埃因霍温理工大学 · TSP (Talent Scholarship Program) 硕士全额奖学金</span><span data-lang-en>TU Eindhoven Talent Scholarship Program — Full M.Sc. Scholarship</span></li>
+    <li><span data-lang-zh>浙江大学 · 优秀学生一等奖学金</span><span data-lang-en>Zhejiang University First-Class Outstanding Student Scholarship</span></li>
+  </ul>
+  </div>
+</section>
+
+<section id="skills">
+  <h2 class="section-title"><span data-lang-zh>技能</span><span data-lang-en>Skills</span></h2>
+  <div class="skill-group">
+    <div class="skill-label"><span data-lang-zh>控制 / 仿真</span><span data-lang-en>Control / Simulation</span></div>
+    <div class="skill-chips">
+      <span class="chip">MATLAB</span><span class="chip">Simulink</span><span class="chip">Simscape</span>
+      <span class="chip">dSPACE</span>
+      <span class="chip" data-lang-zh>快速控制原型仿真</span><span class="chip" data-lang-en>Rapid Control Prototyping</span>
+      <span class="chip" data-lang-zh>硬件在环测试</span><span class="chip" data-lang-en>Hardware-in-the-Loop</span>
+    </div>
+  </div>
+  <div class="skill-group">
+    <div class="skill-label"><span data-lang-zh>编程 / 工具</span><span data-lang-en>Programming / Tools</span></div>
+    <div class="skill-chips">
+      <span class="chip">Python</span><span class="chip">C++</span><span class="chip">Git</span>
+      <span class="chip">LaTeX</span><span class="chip">Vim</span>
+      <span class="chip">Confluence / Jira / Bitbucket</span>
+    </div>
+  </div>
+  <div class="skill-group">
+    <div class="skill-label"><span data-lang-zh>AI / Agent</span><span data-lang-en>AI / Agents</span></div>
+    <div class="skill-chips">
+      <span class="chip">LLM</span><span class="chip">RAG</span><span class="chip">LangChain</span>
+      <span class="chip">Dify</span><span class="chip">MCP</span><span class="chip">Anthropic Agent Skills</span>
+      <span class="chip" data-lang-zh>知识图谱</span><span class="chip" data-lang-en>Knowledge Graphs</span>
+    </div>
+  </div>
+  <div class="skill-group">
+    <div class="skill-label"><span data-lang-zh>管理 / 语言</span><span data-lang-en>Management / Languages</span></div>
+    <div class="skill-chips">
+      <span class="chip">PMP</span>
+      <span class="chip" data-lang-zh>中文（母语）</span><span class="chip" data-lang-en>Chinese (Native)</span>
+      <span class="chip" data-lang-zh>英文（工作流利）</span><span class="chip" data-lang-en>English (Work-proficient)</span>
+    </div>
+  </div>
+</section>
+
+<section id="publications" style="background:var(--bg-soft);max-width:100%;">
+  <div style="max-width:var(--maxw);margin:0 auto;">
+  <h2 class="section-title"><span data-lang-zh>代表性论文</span><span data-lang-en>Selected Publications</span></h2>
+  <p style="color:var(--text-dim);margin-bottom:18px;font-size:.9rem;">
+    <span data-lang-zh>IEEE 顶刊一作 · 分布式观测器 / 控制器、结构减振方向 · 另有多篇会议论文及 IEEE 顶刊审稿、会议联席主席经历。</span>
+    <span data-lang-en>First-author in IEEE flagship journals on distributed observers/controllers and structural vibration reduction; plus conference papers, IEEE journal reviewing and a session co-chair role.</span>
+  </p>
+
+  <div class="pub-item">
+    <span class="pub-authors"><b>X. Zhang</b>, K. Hengster-Movric.</span>
+    "Decentralized design of distributed observers for LTI systems."
+    <span class="pub-venue">IEEE Transactions on Automatic Control</span>, 2022. DOI: 10.1109/TAC.2022.3232441.
+  </div>
+  <div class="pub-item">
+    <span class="pub-authors"><b>X. Zhang</b>, K. Hengster-Movric, M. Šebek, W. Desmet, C. Faria.</span>
+    "Distributed observer and controller design for spatially interconnected systems."
+    <span class="pub-venue">IEEE Transactions on Control Systems Technology</span>, vol. 27(1), pp. 1-13, 2019. DOI: 10.1109/TCST.2017.2769019.
+  </div>
+  <div class="pub-item">
+    <span class="pub-authors"><b>X. Zhang</b>, G. Pipeleers, K. Hengster-Movric, C. Faria.</span>
+    "Vibration reduction for structures: distributed schemes over directed graphs."
+    <span class="pub-venue">Journal of Vibration and Control</span>, 2019. DOI: 10.1177/1077546319844856.
+  </div>
+  <div class="pub-item">
+    <span class="pub-authors"><b>X. Zhang</b>, K. Hengster-Movric, M. Šebek, W. Desmet, C. Faria.</span>
+    "Consensus-based distributed sensor fusion over a network."
+    <span class="pub-venue">2017 IEEE Conf. on Control Technology and Applications (CCTA)</span>, Hawai'i, USA. DOI: 10.1109/CCTA.2017.8062540.
+  </div>
+  <p style="color:var(--text-dim);margin-top:16px;font-size:.85rem;">
+    <span data-lang-zh>+ 另有 5 篇会议论文（IEEE CCA、ISMA、SAE、SPIE、Springer 等）。</span>
+    <span data-lang-en>+ 5 additional conference papers (IEEE CCA, ISMA, SAE, SPIE, Springer).</span>
+  </p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 <span data-lang-zh>张学吉 Xueji Zhang</span><span data-lang-en>Xueji Zhang</span> ·
+    <a href="mailto:zxjx@zju.edu.cn">zxjx@zju.edu.cn</a></p>
+</footer>
+<script>
+(function () {
+  var html = document.documentElement;
+  var btn = document.getElementById("langToggle");
+  // restore preference
+  var saved = localStorage.getItem("lang");
+  if (saved === "en" || saved === "zh") html.setAttribute("lang", saved);
+
+  function syncBtn() {
+    var isEn = html.getAttribute("lang") === "en";
+    btn.textContent = isEn ? "中文" : "EN";
+    document.title = isEn
+      ? "Xueji Zhang — Control Systems PhD · Industrial AI Specialist"
+      : "张学吉 | Xueji Zhang — 控制工程博士 · 工业智能化专家";
+  }
+  btn.addEventListener("click", function () {
+    var next = html.getAttribute("lang") === "en" ? "zh" : "en";
+    html.setAttribute("lang", next);
+    localStorage.setItem("lang", next);
+    syncBtn();
+  });
+  syncBtn();
+})();
+</script>
+</body>
+</html>
