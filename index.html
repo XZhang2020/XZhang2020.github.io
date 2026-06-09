@@ -252,7 +252,7 @@ html[lang="en"] [data-lang-en] { display: revert; }
   <div class="story-body">
     <p>
       <span data-lang-zh>我是一名横跨「控制工程 × 工业智能化 × AI」的工程师。十余年里，我的工作沿着一条完整的链路推进：从控制理论的底层数学，到把控制与优化算法嵌入工业产品、让设备更智能，再到今天投身工业大模型与Agent。</span>
-      <span data-lang-en>I'm an engineer working across control theory, industrial engineering, and AI. Over the past decade my work has followed one continuous thread: from the underlying mathematics of control, to embedding control and optimization algorithms into industrial products to make equipment smarter, to today's work on industrial large models and agents.</span>
+      <span data-lang-en>I'm an engineer working across control engineering, industrial intelligence, and AI. Over the past decade my work has followed one continuous thread: from the underlying mathematics of control, to embedding control and optimization algorithms into industrial products to make equipment smarter, to today's work on industrial large models and agents.</span>
     </p>
     <p>
       <span data-lang-zh>读博期间我在 IEEE TAC、TCST 等顶刊以一作发表分布式观测器与控制器的工作；进入工业界后，我没有停在论文层面——在阿特拉斯·科普柯，我作为项目负责人，把控制与优化算法嵌入到嵌入式控制器中，让产品更智能；我参与的两款产品累计销售 2000 余台。近两年，我主动转向AI: 从Dify二开、内部AI培训，到探索事件驱动的工业Agent架构思路。</span>
@@ -481,6 +481,14 @@ html[lang="en"] [data-lang-en] { display: revert; }
     localStorage.setItem("lang", next);
     syncBtn();
   });
+
+  var printBtn = document.getElementById("printPdf");
+  if (printBtn) {
+    printBtn.addEventListener("click", function () {
+      window.print();
+    });
+  }
+
   syncBtn();
 })();
 </script>
