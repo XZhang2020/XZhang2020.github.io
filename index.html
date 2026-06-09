@@ -80,6 +80,27 @@ section { max-width: var(--maxw); margin: 0 auto; padding: 56px 24px; }
 }
 .contact-row { display: flex; flex-wrap: wrap; gap: 18px; justify-content: center; font-size: .92rem; }
 .contact-row a, .contact-row span { color: var(--text-dim); }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 22px; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 9px 16px; border-radius: 999px; border: 1px solid var(--accent);
+  background: var(--accent); color: white; font-size: .9rem; font-weight: 600;
+  cursor: pointer; font-family: inherit; transition: transform .2s, background .2s, border-color .2s;
+}
+.btn:hover { transform: translateY(-2px); text-decoration: none; background: #2563eb; border-color: #2563eb; }
+.btn.secondary { background: transparent; color: var(--accent-2); border-color: var(--border); }
+.btn.secondary:hover { background: var(--bg-soft); border-color: var(--accent); }
+
+@media print {
+  .nav, .hero-actions { display: none !important; }
+  body { background: white; color: #111827; }
+  section, .hero { max-width: none; padding: 24px 32px; }
+  .hero { border-bottom: 1px solid #d1d5db; }
+  .card { border-color: #d1d5db; background: white; break-inside: avoid; }
+  .tl-item, .edu-item, .pub-item { break-inside: avoid; }
+  .tl-org, .tl-item li, .card li, .hero .blurb, .contact-row a, .contact-row span { color: #374151; }
+  a { color: #111827; }
+}
 
 /* ---- story ---- */
 .story-body p { margin-bottom: 16px; color: var(--text); font-size: 1.02rem; }
@@ -201,8 +222,8 @@ html[lang="en"] [data-lang-en] { display: revert; }
     <span data-lang-en>Control Systems Ph.D. · Industrial AI & Agent Specialist</span>
   </p>
   <p class="blurb">
-    <span data-lang-zh>从分布式控制理论到工业产品落地，再到工业大模型与 Agent —— 横跨「控制 × 工业 × AI」的复合型工程师与研究者。IEEE 顶刊一作，国家级海外高层次人才（青年千人）。</span>
-    <span data-lang-en>From distributed control theory to shipped industrial products, now into industrial large models and agents — an engineer-researcher spanning Control × Industry × AI. First-author in IEEE flagship journals; national-level overseas talent program awardee.</span>
+    <span data-lang-zh>从分布式控制理论到工业产品落地，再到工业大模型与 Agent —— 横跨「控制系统 × 工业自动化 × AI」的工程师与研究者。IEEE 顶刊一作，国家级海外高层次人才（青年千人）。</span>
+    <span data-lang-en>From distributed control theory to industrial automation and industrial large models/agents — an engineer-researcher spanning Control Systems × Industrial Automation × AI. First-author in IEEE flagship journals; national-level overseas talent program awardee.</span>
   </p>
   <div class="hero-tags">
     <span class="tag" data-lang-zh>分布式控制</span><span class="tag" data-lang-en>Distributed Control</span>
@@ -216,17 +237,25 @@ html[lang="en"] [data-lang-en] { display: revert; }
     <span>📞 138-5448-6294</span>
     <span data-lang-zh>📍 中国 · 广州</span><span data-lang-en>📍 Guangzhou, China</span>
   </div>
+  <div class="hero-actions">
+    <a class="btn" href="%E4%B8%AD%E6%96%87.pdf" download>
+      <span data-lang-zh>下载 PDF 简历</span><span data-lang-en>Download PDF Resume</span>
+    </a>
+    <button class="btn secondary" type="button" id="printPdf">
+      <span data-lang-zh>导出本页为 PDF</span><span data-lang-en>Export This Page as PDF</span>
+    </button>
+  </div>
 </header>
 
 <section id="story">
   <h2 class="section-title"><span data-lang-zh>关于我</span><span data-lang-en>About Me</span></h2>
   <div class="story-body">
     <p>
-      <span data-lang-zh>我是一名横跨「控制理论 × 工业工程 × AI」的工程师。十余年里，我的工作沿着一条完整的链路推进：从控制理论的底层数学，到把控制与优化算法嵌入工业产品、让设备更智能，再到今天投身工业大模型与Agent。</span>
+      <span data-lang-zh>我是一名横跨「控制工程 × 工业智能化 × AI」的工程师。十余年里，我的工作沿着一条完整的链路推进：从控制理论的底层数学，到把控制与优化算法嵌入工业产品、让设备更智能，再到今天投身工业大模型与Agent。</span>
       <span data-lang-en>I'm an engineer working across control theory, industrial engineering, and AI. Over the past decade my work has followed one continuous thread: from the underlying mathematics of control, to embedding control and optimization algorithms into industrial products to make equipment smarter, to today's work on industrial large models and agents.</span>
     </p>
     <p>
-      <span data-lang-zh>读博期间我在 IEEE TAC、TCST 等顶刊以一作发表分布式观测器与控制器的工作；进入工业界后，我没有停在论文层面——在阿特拉斯·科普柯，我作为项目负责人，把控制与优化算法嵌入到嵌入式控制器中，让产品更智能；我参与的两款产品累计销售 2000 余台。近两年，我主动转向AI:从Dify二开、内部AI培训，到探索事件驱动的工业Agent架构思路。</span>
+      <span data-lang-zh>读博期间我在 IEEE TAC、TCST 等顶刊以一作发表分布式观测器与控制器的工作；进入工业界后，我没有停在论文层面——在阿特拉斯·科普柯，我作为项目负责人，把控制与优化算法嵌入到嵌入式控制器中，让产品更智能；我参与的两款产品累计销售 2000 余台。近两年，我主动转向AI: 从Dify二开、内部AI培训，到探索事件驱动的工业Agent架构思路。</span>
       <span data-lang-en>During my PhD I published first-author work on distributed observers and controllers in IEEE TAC and TCST. In industry I didn't stop at papers — at Atlas Copco, as project lead, I embedded control and optimization algorithms into embedded controllers to make the products smarter; the two product lines I contributed to have shipped 2000+ units. In the past two years I've moved deliberately into AI: from extending Dify and running internal AI training to exploring an event-driven industrial-agent architecture.</span>
     </p>
     <p>
